@@ -23,6 +23,17 @@ export class WorkspaceCardComponent implements OnInit{
     })
   }
 
+
+
+  deleteTask(id:string){
+    this.todoService.deleteSingleTodo(id)
+      .subscribe({
+        next:(data) => {
+          location.reload();
+        }
+      })
+  }
+
   viewTack(id:string, workSpaceId:string){
     this.router.navigate([ "workspace/" + workSpaceId + "/" + id])
   }

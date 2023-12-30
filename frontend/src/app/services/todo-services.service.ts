@@ -36,4 +36,9 @@ export class TodoServicesService {
   updateSingleTodo(id:string, updatedTodo: Task):Observable<Task>{
     return this.http.put<Task>(this._baseUrl + '/api/Todo/' + id, updatedTodo)
   }
+
+  //delete a single task
+  deleteSingleTodo(id:string):Observable<Task>{
+    return this.http.delete<Task>(this._baseUrl + '/api/Todo/' + id)
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Task } from 'src/app/interfaces/task';
+import { TodoServicesService } from 'src/app/services/todo-services.service';
 
 @Component({
   selector: 'app-edit-task-component',
@@ -8,10 +10,35 @@ import { Router } from '@angular/router';
 })
 export class EditTaskComponentComponent implements OnInit{
 
-  constructor(private router:Router){}
+  exitingTask : Task =  {
+    id:'',
+    workSpaceId: '',
+    name:'',
+    user:'',
+    status:''
+  }
+
+  constructor(private router:Router, private taskService:TodoServicesService, private route:ActivatedRoute){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.taskService.getSingleTodoById(this.route.snapshot.params['id'])
+    .subscribe({
+      next:(data) => {
+        this.exitingTask = data
+        console.log(this.exitingTask.workSpaceId);
+        
+      }
+    })
+  }
+
+
+  updateTask(){
+    this.taskService.updateSingleTodo(this.exitingTask.id, this.exitingTask)
+    .subscribe({
+      next:(data) => {
+        this.router.navigate(['workspace/' , this.exitingTask.workSpaceId ])
+      }
+    })
   }
 
   goback(){

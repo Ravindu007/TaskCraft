@@ -26,4 +26,14 @@ export class TodoServicesService {
     newTodo.id = uuidv4();
     return this.http.post<Task>(this._baseUrl + '/api/Todo', newTodo)
   }
+
+  //get a single todo 
+  getSingleTodoById(id:string):Observable<Task>{
+    return this.http.get<Task>(this._baseUrl + '/api/Todo/'+ id)
+  }
+
+  //update a single todo
+  updateSingleTodo(id:string, updatedTodo: Task):Observable<Task>{
+    return this.http.put<Task>(this._baseUrl + '/api/Todo/' + id, updatedTodo)
+  }
 }

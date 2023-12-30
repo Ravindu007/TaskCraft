@@ -23,8 +23,8 @@ export class WorkspaceCardComponent implements OnInit{
     })
   }
 
-  viewTack(id:string, workspaceId:string){
-    this.router.navigate([ "workspace/" + workspaceId + "/" + id])
+  viewTack(id:string, workSpaceId:string){
+    this.router.navigate([ "workspace/" + workSpaceId + "/" + id])
   }
 
 }

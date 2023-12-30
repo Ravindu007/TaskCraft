@@ -4,12 +4,12 @@
 
       <div class="form-group flex flex-col w-full border-2 px-2 py-2">
         <label for="">Task Name</label>
-        <input class="border-md" type="text">
+        <input class="border-md" type="text" name="name" [(ngModel)] = 'exitingTask.name'>
       </div>
 
       <div class="form-group flex flex-col w-full border-2 px-2 py-2">
         <label for="">Status</label>
-        <select name="cars" id="cars" class="rounded-md">
+        <select id="cars" class="rounded-md" name="status" [(ngModel)] = 'exitingTask.status'> 
           <option value="todo">Todo</option>
           <option value="doing">Doing</option>
           <option value="done">Done</option>
@@ -17,7 +17,7 @@
       </div>
       
       <div class="button-section flex justify-end">
-        <button class="mx-1 bg-green-300 px-2 rounded-md m-1" >Update</button>
+        <button class="mx-1 bg-green-300 px-2 rounded-md m-1"  (click)="updateTask()">Update</button>
         <button class="mx-1 bg-yellow-300 px-2 rounded-md m-1" (click)="goback()">Back</button>
       </div>
 

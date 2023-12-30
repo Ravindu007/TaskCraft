@@ -12,7 +12,7 @@ export class CreateTaskComponentComponent implements OnInit {
 
   newTask: Task = {
     id:'',
-    workspaceId: '',
+    workSpaceId: '',
     name:'',
     user:'',
     status:''
@@ -22,7 +22,7 @@ export class CreateTaskComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.newTask.user ='ravindu@gmail.com'
-    this.newTask.workspaceId = this.route.snapshot.params['id']
+    this.newTask.workSpaceId = this.route.snapshot.params['id']
   }
 
   addTask(){

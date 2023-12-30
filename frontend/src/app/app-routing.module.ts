@@ -20,7 +20,7 @@ const routes: Routes = [
     component:WorkspaceCardComponent
   },
   {
-    path:'workspace/:workspaceId/:id', //get single task for update
+    path:'workspace/:workSpaceId/:id', //get single task for update
     component: EditTaskComponentComponent
   },
   {

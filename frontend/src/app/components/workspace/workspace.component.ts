@@ -11,37 +11,12 @@ import { WorkspaceServiceService } from 'src/app/services/workspace-service.serv
 export class WorkspaceComponent implements OnInit {
 
   //store variable 
-  public workspaces: WorkSpace[] = [
-    {
-      id:'1',
-      name:'urgent',
-      user:'ravindu',
-      dateCreated:new Date()
-    },
-    {
-      id:'2',
-      name:'urgent',
-      user:'ravindu',
-      dateCreated:new Date()
-    },
-    {
-      id:'3',
-      name:'urgent',
-      user:'ravindu',
-      dateCreated:new Date()
-    },
-    {
-      id:'3',
-      name:'urgent',
-      user:'ravindu',
-      dateCreated:new Date()
-    }
-  ]
+  public workspaces: WorkSpace[] = []
 
   constructor(private workspaceServie:WorkspaceServiceService, private router:Router){}
 
   ngOnInit(): void {
-    this.workspaceServie.getAllWorkSpaces()
+    this.workspaceServie.getAllWorkSpacesByEmail('ravindu@gmail.com')
     .subscribe({
       next:(workspaces) => {
         this.workspaces = workspaces;

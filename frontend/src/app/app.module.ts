@@ -17,6 +17,10 @@ import { EditTaskComponentComponent } from './components/edit-task-component/edi
 import { CreateTaskComponentComponent } from './components/create-task-component/create-task-component.component';
 import { ProfileComponent } from './components/profile/profile.component'
 
+//services
+import { WorkspaceServiceService } from './services/workspace-service.service';
+import { TodoServicesService } from './services/todo-services.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,7 @@ import { ProfileComponent } from './components/profile/profile.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [WorkspaceServiceService, TodoServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

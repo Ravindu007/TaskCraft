@@ -8,13 +8,13 @@ import { WorkSpace } from '../interfaces/workspace';
 })
 export class WorkspaceServiceService {
 
-  _baseUrl : string = 'backendURL'
+  _baseUrl : string = 'https://localhost:7065'
 
   constructor(private http:HttpClient) { }
 
 
-  //get all workspaces
-  getAllWorkSpaces(): Observable<WorkSpace[]>{
-    return this.http.get<WorkSpace[]>(this._baseUrl + "/api/workspace");
+  //get all workspaces by email
+  getAllWorkSpacesByEmail(email:string): Observable<WorkSpace[]>{
+    return this.http.get<WorkSpace[]>(this._baseUrl + `/api/workspace?email=${email}`);
   }
 }

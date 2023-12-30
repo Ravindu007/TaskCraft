@@ -42,6 +42,6 @@ export class EditTaskComponentComponent implements OnInit{
   }
 
   goback(){
-    this.router.navigate(['workspace/:id' ]) //id has to be replaced when fetched the data
+    this.router.navigate(['workspace/' + this.exitingTask.workSpaceId ])
   }
 }

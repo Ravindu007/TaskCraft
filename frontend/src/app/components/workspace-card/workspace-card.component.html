@@ -2,6 +2,7 @@
   <div class="row">
 
     <div class="grid grid-cols-1 px-24 m-5">
+      <h1 class="font-bold text-center">Add Task</h1>
       <app-create-task-component></app-create-task-component>
     </div>
 
@@ -9,6 +10,7 @@
 
       <!-- to do -->
       <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
+        <h1 class="font-bold">To Do</h1>
         <!-- task parent component -->
         <div class="task-parent w-full" *ngFor="let task of tasks" >
           <!-- task -->
@@ -28,7 +30,7 @@
 
       <!-- doing -->
       <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
-
+        <h1 class="font-bold">Doing</h1>
         <div class="task-parent w-full" *ngFor="let task of tasks" >
           <!-- task -->
           <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'doing'">
@@ -46,7 +48,7 @@
 
       <!-- done -->
       <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
-
+        <h1 class="font-bold">Done</h1>
         <div class="task-parent w-full" *ngFor="let task of tasks" >
           <!-- task -->
           <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'done'">

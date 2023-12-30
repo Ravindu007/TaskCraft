@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 import { WorkSpace } from 'src/app/interfaces/workspace';
 import { WorkspaceServiceService } from 'src/app/services/workspace-service.service';
 
@@ -13,13 +14,23 @@ export class WorkspaceComponent implements OnInit {
   //store variable 
   public workspaces: WorkSpace[] = []
 
-  constructor(private workspaceServie:WorkspaceServiceService, private router:Router){}
+  user : any = {}
+
+  constructor(private workspaceServie:WorkspaceServiceService, private router:Router, private auth:AuthService){}
 
   ngOnInit(): void {
-    this.workspaceServie.getAllWorkSpacesByEmail('ravindu@gmail.com')
+
+    this.auth.user$
     .subscribe({
-      next:(workspaces) => {
-        this.workspaces = workspaces;
+      next:(profile) => {
+        this.user = profile
+
+        this.workspaceServie.getAllWorkSpacesByEmail(this.user.email)
+        .subscribe({
+          next:(workspaces) => {
+            this.workspaces = workspaces;
+          }
+        })
       }
     })
   }

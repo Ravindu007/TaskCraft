@@ -1,0 +1,28 @@
+<div>
+  <div class="row">
+    <div class="grid grid-cols-3">
+      <div class="col-span-2">
+        <div class="grid grid-cols-3" *ngIf="workspaces.length > 0">
+
+          <div class="col-span-1 border-2" *ngFor="let workspace of workspaces">
+            <div class="card m-1 border-2 px-1">
+              <p>{{workspace.user}}</p>
+              <p>{{workspace.id}}</p>
+              <p>{{workspace.dateCreated}}</p>
+              <div class="button-div">
+                <button>View</button>
+                <button>Delete</button>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      <div class="col-span-1 border-2 shadow-md shadow-gray-500">
+        <h1>
+          <app-create-workspace></app-create-workspace>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

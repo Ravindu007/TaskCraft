@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from 'src/app/interfaces/task';
+import { TodoServicesService } from 'src/app/services/todo-services.service';
 
 @Component({
   selector: 'app-workspace-card',
@@ -9,62 +10,17 @@ import { Task } from 'src/app/interfaces/task';
 })
 export class WorkspaceCardComponent implements OnInit{
 
-  public tasks : Task[] = [
-    {
-      id:'1',
-      workspaceId: '1',
-      name:'todo',
-      user:'ravindu',
-      status:'todo'
-    },
-    {
-      id:'2',
-      workspaceId: '1',
-      name:'doing',
-      user:'ravindu',
-      status:'doing'
-    },
-    {
-      id:'3',
-      workspaceId: '2',
-      name:'done',
-      user:'ravindu',
-      status:'done'
-    },
-    {
-      id:'4',
-      workspaceId: '3',
-      name:'done',
-      user:'ravindu',
-      status:'done'
-    },
-    {
-      id:'5',
-      workspaceId: '2',
-      name:'done',
-      user:'ravindu',
-      status:'done'
-    },
-    {
-      id:'5',
-      workspaceId: '1',
-      name:'done',
-      user:'ravindu',
-      status:'done'
-    },
-    {
-      id:'5',
-      workspaceId: '2',
-      name:'todo',
-      user:'ravindu',
-      status:'toto'
-    },
-  ]
+  public tasks : Task[] = []
 
-  constructor(private router:Router){}
+  constructor(private todoService:TodoServicesService, private router:Router, private route:ActivatedRoute){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.todoService.getAllTodosRelatedToSingleWorkSpace(this.route.snapshot.params['id'])
+    .subscribe({
+      next:(data) => {
+        this.tasks = data
+      }
+    })
   }
 
   viewTack(id:string, workspaceId:string){

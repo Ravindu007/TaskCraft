@@ -1,6 +1,7 @@
 export interface WorkSpace 
 {
-  id: string
+  id: string,
+  name:string
   user: string,
   dateCreated: Date
 }

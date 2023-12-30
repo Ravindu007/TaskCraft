@@ -1,0 +1,68 @@
+<div>
+  <div class="row">
+
+    <div class="grid grid-cols-1 px-24 m-5">
+      <app-create-task-component></app-create-task-component>
+    </div>
+
+    <div class="grid grid-cols-3">
+
+      <!-- to do -->
+      <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
+        <!-- task parent component -->
+        <div class="task-parent w-full" *ngFor="let task of tasks" >
+          <!-- task -->
+          <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'todo'">
+              <div class="text p-2">
+                <p>{{task.name}}</p>
+              </div>
+              <div class="buttons">
+                <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workspaceId)">Edit</button>
+                <button class="px-2 py-1 bg-red-300 rounded-md mx-1">Delete</button>
+              </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- doing -->
+      <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
+
+        <div class="task-parent w-full" *ngFor="let task of tasks" >
+          <!-- task -->
+          <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'doing'">
+            <div class="text p-2">
+              <p>{{task.name}}</p>
+            </div>
+            <div class="buttons">
+              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workspaceId)">Edit</button>
+              <button class="px-2 py-1 bg-red-300 rounded-md mx-1">Delete</button>
+            </div>
+        </div>
+        </div>
+
+      </div>
+
+      <!-- done -->
+      <div class="col-span-1 flex flex-col items-center shadow-md shadow-gray-400 h-[70vh] overflow-y-scroll">
+
+        <div class="task-parent w-full" *ngFor="let task of tasks" >
+          <!-- task -->
+          <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'done'">
+            <div class="text p-2">
+              <p>{{task.name}}</p>
+            </div>
+            <div class="buttons">
+              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workspaceId)">Edit</button>
+              <button class="px-2 py-1 bg-red-300 rounded-md mx-1">Delete</button>
+            </div>
+        </div>
+        </div>
+
+      </div>      
+      
+
+    </div>
+  </div>
+</div>

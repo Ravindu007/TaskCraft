@@ -11,7 +11,11 @@ import { HomeComponent } from './components/home/home.component';
 //modules
 import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
-import { CreateWorkspaceComponent } from './components/create-workspace/create-workspace.component'
+import { CreateWorkspaceComponent } from './components/create-workspace/create-workspace.component';
+import { WorkspaceCardComponent } from './components/workspace-card/workspace-card.component';
+import { EditTaskComponentComponent } from './components/edit-task-component/edit-task-component.component';
+import { CreateTaskComponentComponent } from './components/create-task-component/create-task-component.component';
+import { ProfileComponent } from './components/profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { CreateWorkspaceComponent } from './components/create-workspace/create-w
     NavbarComponent,
     WorkspaceComponent,
     HomeComponent,
-    CreateWorkspaceComponent
+    CreateWorkspaceComponent,
+    WorkspaceCardComponent,
+    EditTaskComponentComponent,
+    CreateTaskComponentComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

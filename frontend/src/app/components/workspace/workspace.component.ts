@@ -24,6 +24,15 @@ export class WorkspaceComponent implements OnInit {
     })
   }
 
+  deleteWorkSpace(id:string){
+    this.workspaceServie.deleteWorkSpace(id)
+      .subscribe({
+        next:(data) => {
+          location.reload()
+        }
+      })
+  }
+
   showWorkSpace(id:string){
     this.router.navigate(['workspace/' + id])
   }

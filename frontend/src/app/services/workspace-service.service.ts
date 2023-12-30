@@ -25,4 +25,9 @@ export class WorkspaceServiceService {
     newWorkSpace.id = uuidv4();
     return this.http.post<WorkSpace>(this._baseUrl + "/api/WorkSpace", newWorkSpace)
   }
+
+  //deleting a workspace 
+  deleteWorkSpace(id:string):Observable<WorkSpace>{
+    return this.http.delete<WorkSpace>(this._baseUrl + '/api/WorkSpace/' + id)
+  }
 }

@@ -1,12 +1,12 @@
 <div class="px-2">
-  <form>
+  <form #form="ngForm" (ngSubmit)="addWorkSpace()">
     <div class="form-group">
       <label for="">Name</label>
-      <input type="text" class="w-full border-2">
+      <input type="text" class="w-full border-2" name="name" [(ngModel)]="newWorkSpace.name">
     </div>
     <div class="form-group">
       <label for="">Date</label>
-      <input type="date" class="w-full border-2">
+      <input type="date" class="w-full border-2" name="dateCreated" [(ngModel)]="newWorkSpace.dateCreated">
     </div>
     <div class="form-group flex justify-end py-4">
       <button class="px-4 bg-yellow-200 rounded-md">Create</button>

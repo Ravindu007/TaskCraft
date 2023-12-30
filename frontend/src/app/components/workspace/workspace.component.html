@@ -2,7 +2,7 @@
   <div class="row">
     <div class="grid grid-cols-3">
       <div class="col-span-2">
-        <div class="grid grid-cols-3" *ngIf="workspaces.length > 0">
+        <div class="grid grid-cols-3 h-[80vh] overflow-y-scroll" *ngIf="workspaces.length > 0">
 
           <div class="col-span-1 border-2" *ngFor="let workspace of workspaces">
             <div class="card m-1 border-2 px-1  flex flex-col gap-3">

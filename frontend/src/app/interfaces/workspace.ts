@@ -3,5 +3,5 @@ export interface WorkSpace
   id: string,
   name:string
   user: string,
-  dateCreated: Date,
+  dateCreated: string,
 }

@@ -1,26 +1,22 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900 text-white">
-  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-      <a href="" class="text-white font-semibold">
-        <img src="assets/home/logo.png" alt="" width="80">
-      </a>
-      <a href="" class="" [routerLink]="['/profile']" *ngIf="auth.user$ | async as user">
-        <div class="img-container h-10 w-10 rounded-full">
-          <img src="{{user.picture}}" alt="" style="border-radius: 50%;">
-        </div>
-      </a>
-  </div>
-</nav>
 <nav class="bg-gray-50 dark:bg-gray-700">
   <div class="max-w-screen-xl px-4 py-3 mx-auto">
       <div class="flex items-center">
           <div class="flex font-medium mt-0 space-x-8 rtl:space-x-reverse  justify-between text-sm w-full">
+            <a href="" class="text-white font-semibold">
+              <img src="assets/home/logo.png" alt="" width="50">
+            </a>
               <div>
                   <a class="text-gray-900 bg-yellow-400  px-1 md:px-4 rounded-md hover:underline hover:cursor-pointer  mx-1" aria-current="page" [routerLink]="['']">Home</a>
                   <a class="text-gray-900 bg-yellow-400  px-1 md:px-4 rounded-md hover:underline hover:cursor-pointer  mx-1" aria-current="page" [routerLink]="['/workspace']">Choose Work Space</a>
               </div>
-              <div>
+              <div class="flex items-center">
                 <app-login *ngIf="(auth.isAuthenticated$ | async) === false"></app-login>
                 <app-logout *ngIf="(auth.isAuthenticated$ | async) === true"></app-logout>
+                <a href="" class="" [routerLink]="['/profile']" *ngIf="auth.user$ | async as user">
+                  <div class="img-container h-7 w-7 rounded-full">
+                    <img src="{{user.picture}}" alt="" style="border-radius: 50%;">
+                  </div>
+                </a>
               </div>
           </div>
       </div>

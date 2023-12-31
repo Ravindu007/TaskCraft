@@ -27,7 +27,7 @@ export class WorkspaceComponent implements OnInit {
 
         this.workspaceServie.getAllWorkSpacesByEmail(this.user.email)
         .subscribe({
-          next:(workspaces) => {
+          next:(workspaces) => {            
             this.workspaces = workspaces;
           }
         })

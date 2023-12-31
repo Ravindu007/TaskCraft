@@ -3,12 +3,12 @@
     <div class="grid grid-cols-3">
       <div class="col-span-2">
         <h1 class="text-center font-bold">Your WorkSpaces</h1>
-        <div class="grid grid-cols-3 h-[80vh] overflow-y-scroll" *ngIf="workspaces.length > 0">
+        <div class="grid grid-cols-3 h-auto overflow-y-scroll" *ngIf="workspaces.length > 0">
 
           <div class="col-span-1" *ngFor="let workspace of workspaces">
             <div class="card m-1 border-2 px-2  flex flex-col gap-3 shadow-md">
               <p class="font-semibold">{{workspace.name}}</p>
-              <p>{{workspace.dateCreated}}</p>
+              <p>{{workspace.dateCreated.slice(0,10)}}</p>
               <div class="button-div">
                 <button class="bg-green-300 px-3 rounded-md m-1" (click)="showWorkSpace(workspace.id)">View</button>
                 <button class="bg-red-300 px-3 rounded-md m-1" (click)="deleteWorkSpace(workspace.id)">Delete</button>

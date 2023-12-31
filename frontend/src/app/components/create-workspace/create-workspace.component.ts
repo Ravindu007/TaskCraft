@@ -16,7 +16,7 @@ export class CreateWorkspaceComponent implements OnInit{
     id:'',
     name:'',
     user:'',
-    dateCreated:new Date(),
+    dateCreated: '',
   }
 
   user:any = {}
@@ -38,7 +38,7 @@ export class CreateWorkspaceComponent implements OnInit{
     
     this.workSpaceService.createWorkSpace(this.newWorkSpace)
       .subscribe({
-        next:(data) => {
+        next:(data) => {          
           location.reload()
         }
       })

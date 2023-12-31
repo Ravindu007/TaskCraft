@@ -16,7 +16,9 @@ export class WorkspaceViewComponent implements OnInit{
     name:'',
     dateCreated:'',
     user:'',
-    colloborator:''
+    colloborator1:'',
+    colloborator2:'',
+    colloborator3:''
   }; 
 
   constructor(private workspaceService: WorkspaceServiceService, private route: ActivatedRoute, private router:Router){}

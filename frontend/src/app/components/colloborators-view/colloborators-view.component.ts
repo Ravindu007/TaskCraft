@@ -16,7 +16,9 @@ export class ColloboratorsViewComponent implements OnInit {
     name:'',
     user:'',
     dateCreated:'',
-    colloborator:''
+    colloborator1:'',
+    colloborator2:'',
+    colloborator3:''
   }
 
   constructor(private service:WorkspaceServiceService, private route:ActivatedRoute){}
@@ -26,7 +28,9 @@ export class ColloboratorsViewComponent implements OnInit {
       .subscribe({
         next:(data) => {
           this.existingWorkSpace  = data;
-          this.existingWorkSpace.colloborator = data.colloborator          
+          this.existingWorkSpace.colloborator1 = data.colloborator1          
+          this.existingWorkSpace.colloborator2 = data.colloborator2          
+          this.existingWorkSpace.colloborator3 = data.colloborator3          
         }
       })
     

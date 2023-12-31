@@ -10,7 +10,15 @@
       <form>
         <div class="form-group flex flex-col">
           <label for="">Colloborator 1</label>
-          <input type="text" class="border-2 border-md" placeholder="Enter Colloborator Email" name="colloborator" [(ngModel)]="existingWorkSpace.colloborator">
+          <input type="text" class="border-2 border-md" placeholder="Enter Colloborator Email" name="colloborator1" [(ngModel)]="existingWorkSpace.colloborator1">
+        </div>
+        <div class="form-group flex flex-col">
+          <label for="">Colloborator 2</label>
+          <input type="text" class="border-2 border-md" placeholder="Enter Colloborator Email" name="colloborator2" [(ngModel)]="existingWorkSpace.colloborator2">
+        </div>
+        <div class="form-group flex flex-col">
+          <label for="">Colloborator 3</label>
+          <input type="text" class="border-2 border-md" placeholder="Enter Colloborator Email" name="colloborator3" [(ngModel)]="existingWorkSpace.colloborator3">
         </div>
         <div class="form-group flex justify-end p-2">
           <button class="bg-blue-300 px-4 py-1 rounded-md" (click)="updateWorkSpace()">Add</button>

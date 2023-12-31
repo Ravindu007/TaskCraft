@@ -17,7 +17,9 @@ export class CreateWorkspaceComponent implements OnInit{
     name:'',
     user:'',
     dateCreated: '',
-    colloborator:''
+    colloborator1:'',
+    colloborator2:'',
+    colloborator3:''
   }
 
   user:any = {}

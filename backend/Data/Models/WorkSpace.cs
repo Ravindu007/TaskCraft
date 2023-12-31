@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string user { get; set; }
         public DateTime DateCreated { get; set; }
+        public string colloborator { get; set; }
 
     }
 }

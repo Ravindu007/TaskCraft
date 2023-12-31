@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WorkSpace } from 'src/app/interfaces/workspace';
 import { WorkspaceServiceService } from 'src/app/services/workspace-service.service';
 
@@ -15,10 +15,11 @@ export class WorkspaceViewComponent implements OnInit{
     id:'',
     name:'',
     dateCreated:'',
-    user:''
+    user:'',
+    colloborator:''
   }; 
 
-  constructor(private workspaceService: WorkspaceServiceService, private route: ActivatedRoute){}
+  constructor(private workspaceService: WorkspaceServiceService, private route: ActivatedRoute, private router:Router){}
 
   ngOnInit(): void {
     this.workspaceService.getSingleWorkSpaceByID(this.route.snapshot.params['id'])
@@ -29,4 +30,8 @@ export class WorkspaceViewComponent implements OnInit{
       })
   }
 
+  //single colloborator
+  navigate(id:string){
+    this.router.navigate([id+'/colloborators'])
+  }
 }

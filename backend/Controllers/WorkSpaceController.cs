@@ -3,6 +3,9 @@ using backend.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace backend.Controllers
 {
@@ -10,7 +13,6 @@ namespace backend.Controllers
     [ApiController]
     public class WorkSpaceController : ControllerBase
     {
-
         private readonly TaskCraftDbContext _context;
 
         public WorkSpaceController(TaskCraftDbContext context)
@@ -18,20 +20,18 @@ namespace backend.Controllers
             _context = context;
         }
 
-
-        //Get all workspaces realed to a email 
-        [HttpGet]
+        // Get all workspaces related to an email
+        [HttpGet("GetByEmail")]
         public async Task<IActionResult> GetAllWorkSpacesByEmail([FromQuery] string email)
         {
             var workspaces = await _context.WorkSpaces
-            .Where(workspace => workspace.user == email)
-            .ToListAsync();
+                .Where(workspace => workspace.user == email)
+                .ToListAsync();
 
             return Ok(workspaces);
-
         }
 
-        //Get Single workspace
+        // Get Single workspace
         [HttpGet]
         [Route("{id:Guid}")]
         public async Task<IActionResult> GetWorkSpaceById([FromRoute] Guid id)
@@ -45,8 +45,7 @@ namespace backend.Controllers
             return Ok(workspace);
         }
 
-
-        //create new workspace
+        // Create new workspace
         [HttpPost]
         public async Task<IActionResult> AddWorkSpace([FromBody] WorkSpace workSpaceData)
         {
@@ -57,14 +56,39 @@ namespace backend.Controllers
             return Ok(workSpaceData);
         }
 
-        //No update for workspace
+        // Update workspace with a new collaborator
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> UpdateWorkSpace([FromRoute] Guid id, WorkSpace updatedWorkSpace)
+        {
+            var workspace = await _context.WorkSpaces.FindAsync(id);
+            if (workspace == null)
+            {
+                return NotFound();
+            }
 
-        //Delete workspace
+            workspace.colloborator = updatedWorkSpace.colloborator;
+
+            await _context.SaveChangesAsync();
+            return Ok(workspace);
+        }
+
+        // Get workspaces according to the collaborator
+        [HttpGet("GetByCollaboratorEmail")]
+        public async Task<IActionResult> GetAllWorkSpacesByCollaboratorEmail([FromQuery] string CollaboratorEmail)
+        {
+            var workspaces = await _context.WorkSpaces
+                .Where(workspace => workspace.colloborator == CollaboratorEmail)
+                .ToListAsync();
+
+            return Ok(workspaces);
+        }
+
+        // Delete workspace
         [HttpDelete]
         [Route("{id:Guid}")]
         public async Task<IActionResult> DeleteWorkSpace([FromRoute] Guid id)
         {
-            //check before delete
             var workSpace = await _context.WorkSpaces.FindAsync(id);
             if (workSpace == null)
             {

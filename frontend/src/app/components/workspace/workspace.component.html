@@ -9,9 +9,9 @@
             <div class="card m-1 border-2 px-2  flex flex-col gap-3 shadow-md">
               <p class="font-semibold">{{workspace.name}}</p>
               <p>{{workspace.dateCreated.slice(0,10)}}</p>
-              <div class="button-div">
+              <div class="button-div" *ngIf="auth.user$ | async as user">
                 <button class="bg-green-300 px-3 rounded-md m-1" (click)="showWorkSpace(workspace.id)">View</button>
-                <button class="bg-red-300 px-3 rounded-md m-1" (click)="deleteWorkSpace(workspace.id)">Delete</button>
+                <button class="bg-red-300 px-3 rounded-md m-1" (click)="deleteWorkSpace(workspace.id)" *ngIf="workspace.user == user.email">Delete</button>
               </div>
             </div>
           </div>

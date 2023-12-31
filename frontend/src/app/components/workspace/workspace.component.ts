@@ -13,10 +13,12 @@ export class WorkspaceComponent implements OnInit {
 
   //store variable 
   public workspaces: WorkSpace[] = []
+  
+
 
   user : any = {}
 
-  constructor(private workspaceServie:WorkspaceServiceService, private router:Router, private auth:AuthService){}
+  constructor(private workspaceServie:WorkspaceServiceService, private router:Router, public auth:AuthService){}
 
   ngOnInit(): void {
 
@@ -25,12 +27,23 @@ export class WorkspaceComponent implements OnInit {
       next:(profile) => {
         this.user = profile
 
+        // fetch data if a user
         this.workspaceServie.getAllWorkSpacesByEmail(this.user.email)
         .subscribe({
           next:(workspaces) => {            
             this.workspaces = workspaces;
           }
         })
+
+        //fectch data if a colloborator
+        this.workspaceServie.getAllWorkSpacesByColloboratorEmail(this.user.email)
+        .subscribe({
+          next:(workspaces) => {            
+            this.workspaces = [...this.workspaces, ...workspaces];
+          }
+        })
+
+
       }
     })
   }

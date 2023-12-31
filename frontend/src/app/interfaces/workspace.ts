@@ -4,4 +4,5 @@ export interface WorkSpace
   name:string
   user: string,
   dateCreated: string,
+  colloborator:string
 }

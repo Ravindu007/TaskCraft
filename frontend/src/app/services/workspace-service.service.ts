@@ -15,9 +15,19 @@ export class WorkspaceServiceService {
   constructor(private http:HttpClient) { }
 
 
-  //get all workspaces by email
+  //get all workspaces by email (user)
   getAllWorkSpacesByEmail(email:string): Observable<WorkSpace[]>{
-    return this.http.get<WorkSpace[]>(this._baseUrl + `/api/workspace?email=${email}`);
+    return this.http.get<WorkSpace[]>(this._baseUrl + `/api/workspace/GetByEmail?email=${email}`);
+  }
+
+  //get all workspaces by colloboratorEmail 
+  getAllWorkSpacesByColloboratorEmail(email:string): Observable<WorkSpace[]>{
+    return this.http.get<WorkSpace[]>(this._baseUrl + `/api/workspace/GetByCollaboratorEmail?CollaboratorEmail=${email}`);
+  }
+
+  //add a single coloborator by updating workspace
+  updateSingleWorkSpaceWithSingleColloborator(id:string, updatedWorkSpace:WorkSpace) : Observable<WorkSpace>{
+    return this.http.put<WorkSpace>(this._baseUrl + '/api/WorkSpace/' + id, updatedWorkSpace)
   }
 
 

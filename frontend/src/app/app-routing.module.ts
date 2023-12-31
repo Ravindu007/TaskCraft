@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WorkspaceCardComponent } from './components/workspace-card/workspace-card.component';
 import { EditTaskComponentComponent } from './components/edit-task-component/edit-task-component.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ColloboratorsViewComponent } from './components/colloborators-view/colloborators-view.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
     path:'profile',
     component:ProfileComponent,
     canActivate:[AuthGuard]
+  },
+  {
+    path:':id/colloborators',
+    component:ColloboratorsViewComponent
   }
 ];
 

@@ -16,7 +16,7 @@ export class CreateWorkspaceComponent implements OnInit{
     id:'',
     name:'',
     user:'',
-    dateCreated:new Date()
+    dateCreated:new Date(),
   }
 
   user:any = {}
@@ -24,21 +24,18 @@ export class CreateWorkspaceComponent implements OnInit{
   constructor(private workSpaceService:WorkspaceServiceService, private router:Router, private auth:AuthService){}
 
   ngOnInit(): void {
-
     this.auth.user$
     .subscribe({
       next:(profile) => {
         this.user = profile
         this.newWorkSpace.user = this.user.email
       }
-    })
-
-
-
-    
+    })   
   }
 
-  addWorkSpace(){
+  addWorkSpace(){    
+    console.log(this.newWorkSpace);
+    
     this.workSpaceService.createWorkSpace(this.newWorkSpace)
       .subscribe({
         next:(data) => {

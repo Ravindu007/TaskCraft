@@ -34,7 +34,8 @@ export class WorkspaceCardComponent implements OnInit{
       })
   }
 
-  viewTack(id:string, workSpaceId:string){
+
+  editTask(id:string, workSpaceId:string){
     this.router.navigate([ "workspace/" + workSpaceId + "/" + id])
   }
 

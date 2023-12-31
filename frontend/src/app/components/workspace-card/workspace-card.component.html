@@ -1,9 +1,16 @@
 <div>
   <div class="row">
 
-    <div class="grid grid-cols-1 md:px-24 md:mb-5">
-      <h1 class="font-bold text-center">Add Task</h1>
-      <app-create-task-component></app-create-task-component>
+    <div class="grid grid-cols-1 md:px-2 md:mb-5">
+      <div class="grid grid-cols-3">
+        <div class="col-span-1">
+          <app-workspace-view></app-workspace-view>
+        </div>
+        <div class="col-span-2 flex flex-col items-center">
+          <h1 class="font-bold">Create Task</h1>
+          <app-create-task-component></app-create-task-component>
+        </div>
+      </div>
     </div>
 
     <div class="grid grid-cols-3">
@@ -17,9 +24,10 @@
           <div class="task  text-black mx-2 my-1 p-2 rounded-md shadow-md shadow-black" *ngIf="task.status == 'todo'">
               <div class="text p-2">
                 <p>{{task.name}}</p>
+                <p>{{task.date.slice(0,10)}}</p>
               </div>
               <div class="buttons">
-                <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workSpaceId)">Edit</button>
+                <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="editTask(task.id, task.workSpaceId)">View</button>
                 <button class="px-2 py-1 bg-red-300 rounded-md mx-1" (click)="deleteTask(task.id)">Delete</button>
               </div>
           </div>
@@ -38,7 +46,7 @@
               <p>{{task.name}}</p>
             </div>
             <div class="buttons">
-              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workSpaceId)">Edit</button>
+              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="editTask(task.id, task.workSpaceId)">View</button>
               <button class="px-2 py-1 bg-red-300 rounded-md mx-1" (click)="deleteTask(task.id)">Delete</button>
             </div>
         </div>
@@ -56,7 +64,7 @@
               <p>{{task.name}}</p>
             </div>
             <div class="buttons">
-              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="viewTack(task.id, task.workSpaceId)">Edit</button>
+              <button class="px-2 py-1 bg-green-300 rounded-md mx-1" (click)="editTask(task.id, task.workSpaceId)">View</button>
               <button class="px-2 py-1 bg-red-300 rounded-md mx-1" (click)="deleteTask(task.id)">Delete</button>
             </div>
         </div>

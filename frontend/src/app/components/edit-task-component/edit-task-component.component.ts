@@ -15,7 +15,9 @@ export class EditTaskComponentComponent implements OnInit{
     workSpaceId: '',
     name:'',
     user:'',
-    status:''
+    status:'',
+    description:'',
+    date:''
   }
 
   constructor(private router:Router, private taskService:TodoServicesService, private route:ActivatedRoute){}
@@ -24,9 +26,8 @@ export class EditTaskComponentComponent implements OnInit{
     this.taskService.getSingleTodoById(this.route.snapshot.params['id'])
     .subscribe({
       next:(data) => {
-        this.exitingTask = data
-        console.log(this.exitingTask.workSpaceId);
-        
+        this.exitingTask = data        
+        this.exitingTask.date = this.exitingTask.date.slice(0,10);  
       }
     })
   }

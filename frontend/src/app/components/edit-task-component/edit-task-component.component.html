@@ -2,18 +2,40 @@
   <div class="bg-gray-100 w-full h-[40vh] flex justify-center items-center">
     <form class="border-1 shadow-lg border-black  rounded-md w-2/3">
 
-      <div class="form-group flex flex-col w-full border-2 px-2 py-2">
-        <label for="">Task Name</label>
-        <input class="border-md" type="text" name="name" [(ngModel)] = 'exitingTask.name'>
+
+      <div class="grid grid-cols-3">
+
+        <div class="col-span-1">
+          <div class="form-group flex flex-col w-full border-2 px-2 py-2">
+            <label for="">Task Name</label>
+            <input class="border-md" type="text" name="name" [(ngModel)] = 'exitingTask.name'>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <div class="form-group flex flex-col w-full border-2 px-2 py-2">
+            <label for="">Status</label>
+            <select id="cars" class="rounded-md" name="status" [(ngModel)] = 'exitingTask.status'> 
+              <option value="todo">Todo</option>
+              <option value="doing">Doing</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <div class="form-group flex flex-col w-full border-2 px-2 py-2">
+            <label for="">Date</label>
+            <input class="border-md" type="text" name="date" [(ngModel)] = 'exitingTask.date'>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group flex flex-col w-full border-2 px-2 py-2">
-        <label for="">Status</label>
-        <select id="cars" class="rounded-md" name="status" [(ngModel)] = 'exitingTask.status'> 
-          <option value="todo">Todo</option>
-          <option value="doing">Doing</option>
-          <option value="done">Done</option>
-        </select>
+      <div class="row">
+        <div class="row px-2 py-2">
+          <label for="">Desctiption</label>
+          <textarea id="" class="border-gray-300 border-2 rounded-md w-full" name="description" [(ngModel)]="exitingTask.description"></textarea>
+        </div>
       </div>
       
       <div class="button-section flex justify-end">

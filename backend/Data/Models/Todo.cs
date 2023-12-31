@@ -12,6 +12,8 @@
 
         public string status { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime Date { get; set; }
+
+        public string Description { get; set; }
     }
 }

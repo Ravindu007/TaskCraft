@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend.Data.Database;
 
@@ -11,9 +12,11 @@ using backend.Data.Database;
 namespace backend.Migrations
 {
     [DbContext(typeof(TaskCraftDbContext))]
-    partial class TaskCraftDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231231131729_todo model updated")]
+    partial class todomodelupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

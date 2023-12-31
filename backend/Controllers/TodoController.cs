@@ -70,6 +70,9 @@ namespace backend.Controllers
             //update fiels
             task.Name = updatedTask.Name;
             task.status = updatedTask.status;
+            task.Description = updatedTask.Description;
+            task.Date = updatedTask.Date;
+
 
             await _context.SaveChangesAsync();
             return Ok(task);

@@ -1,19 +1,35 @@
 <div class="">
   <form class="border-1 shadow-lg border-black rounded-md p-0 md:p-5">
-
-    <div class="form-group flex flex-col  border-2 px-2 py-2">
-      <label for="">Task Name</label>
-      <input class="border-gray-300 border-2 rounded-md" type="text" name="name" [(ngModel)]="newTask.name">
+    <div class="grid grid-cols-3">
+      <div class="col-span-1"> 
+        <div class="form-group flex flex-col  border-2 px-2 py-2">
+          <label for="">Task Name</label>
+          <input class="border-gray-300 border-2 rounded-md" type="text" name="name" [(ngModel)]="newTask.name">
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="form-group flex flex-col border-2 px-2 py-2">
+          <label for="">Status</label>
+          <select name="cars" id="cars" class="border-gray-300 border-2 rounded-md" name="status" [(ngModel)]="newTask.status">
+            <option value="todo">Todo</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="form-group flex flex-col  border-2 px-2 py-2">
+          <label for="">Date</label>
+          <input class="border-gray-300 border-2 rounded-md" type="date" name="date" [(ngModel)]="newTask.date">
+        </div>
+      </div>
     </div>
 
-    <div class="form-group flex flex-col border-2 px-2 py-2">
-      <label for="">Status</label>
-      <select name="cars" id="cars" class="border-gray-300 border-2 rounded-md" name="status" [(ngModel)]="newTask.status">
-        <option value="todo">Todo</option>
-        <option value="doing">Doing</option>
-        <option value="done">Done</option>
-      </select>
+    <div class="row px-2 py-2">
+      <label for="">Desctiption</label>
+      <textarea id="" class="border-gray-300 border-2 rounded-md w-full" name="description" [(ngModel)]="newTask.description"></textarea>
     </div>
+
     
     <div class="button-section flex justify-end">
       <button class="mx-1 bg-blue-300 px-2 rounded-md m-1" (click)="addTask()">Add</button>

@@ -24,6 +24,7 @@ import { WorkspaceServiceService } from './services/workspace-service.service';
 import { TodoServicesService } from './services/todo-services.service';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { WorkspaceViewComponent } from './components/workspace-view/workspace-view.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     CreateTaskComponentComponent,
     ProfileComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    WorkspaceViewComponent
   ],
   imports: [
     BrowserModule,

@@ -3,5 +3,7 @@ export interface Task{
   workSpaceId: string,
   name:string
   user:string,
-  status:string
+  status:string,
+  description:string,
+  date:string
 }

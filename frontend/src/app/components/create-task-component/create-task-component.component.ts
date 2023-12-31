@@ -16,7 +16,9 @@ export class CreateTaskComponentComponent implements OnInit {
     workSpaceId: '',
     name:'',
     user:'',
-    status:''
+    status:'',
+    description:'',
+    date:''
   }
 
   user:any = {}

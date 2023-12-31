@@ -20,6 +20,12 @@ export class WorkspaceServiceService {
     return this.http.get<WorkSpace[]>(this._baseUrl + `/api/workspace?email=${email}`);
   }
 
+
+  //getDetailsAbout Single workspace 
+  getSingleWorkSpaceByID(id:string):Observable<WorkSpace>{
+    return this.http.get<WorkSpace>(this._baseUrl + '/api/workspace/' + id)
+  }
+
   //create workspace
   createWorkSpace(newWorkSpace:WorkSpace):Observable<WorkSpace>{
     newWorkSpace.id = uuidv4();

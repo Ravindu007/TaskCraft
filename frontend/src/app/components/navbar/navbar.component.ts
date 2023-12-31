@@ -11,7 +11,6 @@ export class NavbarComponent  implements OnInit{
   constructor(public auth:AuthService){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 
